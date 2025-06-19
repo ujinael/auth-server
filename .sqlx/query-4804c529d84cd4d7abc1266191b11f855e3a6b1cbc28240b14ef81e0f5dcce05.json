@@ -1,0 +1,27 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "\n                INSERT INTO \"users\"(\n                login,\n                password_hash,\n                role_id,\n                permissions,\n                is_active,\n                data\n                )\n                values ($1, $2,$3,$4,$5,$6)\n                RETURNING\n                id\n            ",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "id",
+        "type_info": "Uuid"
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Varchar",
+        "Varchar",
+        "Uuid",
+        "Jsonb",
+        "Bool",
+        "Jsonb"
+      ]
+    },
+    "nullable": [
+      false
+    ]
+  },
+  "hash": "4804c529d84cd4d7abc1266191b11f855e3a6b1cbc28240b14ef81e0f5dcce05"
+}

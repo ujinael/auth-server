@@ -1,0 +1,13 @@
+# Dockerfile для разработки Rust Auth
+FROM rust:1.85
+WORKDIR /app
+RUN apt-get update && apt-get install -y postgresql-client redis-tools && rm -rf /var/lib/apt/lists/*
+RUN cargo install sqlx-cli
+# Копируем манифест и lock-файл для кэширования зависимостей
+COPY Cargo.toml Cargo.lock ./
+# Создаем пустой src/main.rs для кэширования зависимостей
+RUN mkdir src && echo "fn main() {}" > src/main.rs && cargo build && rm -rf src
+# Копируем весь проект
+COPY . .
+EXPOSE 8081
+CMD ["bash", "-c", "./init.sh"]

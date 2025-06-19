@@ -1,0 +1,27 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "\n                UPDATE \"users\" SET(\n                login,\n                role_id,\n                permissions,\n                is_active,\n                data\n                ) = ($1, $2,$3,$4,$5)\n                WHERE id = $6\n                RETURNING id\n            ",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "id",
+        "type_info": "Uuid"
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Varchar",
+        "Uuid",
+        "Jsonb",
+        "Bool",
+        "Jsonb",
+        "Uuid"
+      ]
+    },
+    "nullable": [
+      false
+    ]
+  },
+  "hash": "cc09816304335cad5b7781553c8fba92d00bc0c268a55462e2dfd3924f124bf6"
+}

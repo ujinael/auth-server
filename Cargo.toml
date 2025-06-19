@@ -1,0 +1,42 @@
+[package]
+name = "nanomed-mis-auth"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+axum = {version ="0.7.5",features = ["macros"]}
+validator = { version = "0.16.0", features = ["derive"] }
+regex = "1.6.0"
+
+serde = { version= "1.0.204" , features = ["derive"]}
+serde_json = "1.0.103"
+serde_with = { version = "2.0.0", features = ["time_0_3"] }
+
+tokio = { version = "1.4.0", features = ["full"] }
+uuid = { version = "1", features = ["serde", "v4"] }
+
+jsonwebtoken = "8.0"
+
+sqlx = { version = "0.7.4", features = [ "runtime-tokio","runtime-tokio-native-tls","postgres","macros","chrono","uuid","json" ] }
+
+bb8 = "^0.7.1"
+bb8-redis = "^0.14.0"
+redis = "^0.24.0"
+
+
+anyhow = "1.0.58"
+argon2 = "0.4.1"
+rand = "0.8.5"
+once_cell = "1.13.0"
+dotenvy = "0.15"
+chrono = {version = "0.4.38", features = ["serde"]}
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+tower-http = { version = "0.5", features = ["trace"] }
+# test
+hyper = { version = "1.0.0", features = ["full"] }
+hyper-util = { version = "0.1", features = ["client", "http1", "client-legacy"] }
+
+[dev-dependencies]
+sqlx-cli = { version = "0.7", features = ["postgres"] }
+tower = { version = "0.4", features = ["util"] }

@@ -1,0 +1,68 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "\n            SELECT\n            users.id as user_id,\n            users.login,\n            users.role_id,\n            users.is_active,\n            users.permissions as \"permissions!:Json<Vec<Permission>>\",\n            data,\n            roles.id,\n            roles.title ,\n            roles.description\n            FROM \"users\"\n            LEFT JOIN \"roles\" ON users.role_id = roles.id\n            ",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "user_id",
+        "type_info": "Uuid"
+      },
+      {
+        "ordinal": 1,
+        "name": "login",
+        "type_info": "Varchar"
+      },
+      {
+        "ordinal": 2,
+        "name": "role_id",
+        "type_info": "Uuid"
+      },
+      {
+        "ordinal": 3,
+        "name": "is_active",
+        "type_info": "Bool"
+      },
+      {
+        "ordinal": 4,
+        "name": "permissions!:Json<Vec<Permission>>",
+        "type_info": "Jsonb"
+      },
+      {
+        "ordinal": 5,
+        "name": "data",
+        "type_info": "Jsonb"
+      },
+      {
+        "ordinal": 6,
+        "name": "id",
+        "type_info": "Uuid"
+      },
+      {
+        "ordinal": 7,
+        "name": "title",
+        "type_info": "Varchar"
+      },
+      {
+        "ordinal": 8,
+        "name": "description",
+        "type_info": "Varchar"
+      }
+    ],
+    "parameters": {
+      "Left": []
+    },
+    "nullable": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      false,
+      false,
+      false
+    ]
+  },
+  "hash": "35d161b22ad9639581c4328340060923356be95f2d2b868c662240f744c56baf"
+}
