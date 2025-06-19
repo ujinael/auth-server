@@ -6,9 +6,7 @@
       PORT=YOUR_PORT_NUMBER
       REDIS_URL=redis://localhost
       JWT_SECRET="some_secret_key"
-      # life time of access token in minutes
       ACCESS_TOKEN_EXP=15
-      # life time of refresh token in minutes
       REFRESH_TOKEN_EXP=720
     ```
   2. Запустить сервер базы данных postgres локально или в докер контейнере
